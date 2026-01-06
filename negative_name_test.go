@@ -4,12 +4,12 @@ import (
 	"testing"
 
 	"github.com/asaskevich/govalidator"
-	"github.com/onsi/gomega"
+	 . "github.com/onsi/gomega"
 
 )
 
-func NameCustomer(t *testing.T) {
-	g := gomega.NewGomegaWithT(t)
+func TestNameCustomer(t *testing.T) {
+	g := NewGomegaWithT(t)
 
 	t.Run(`fail name is empty`, func(t *testing.T) {
 		customer := Customer{
@@ -19,9 +19,10 @@ func NameCustomer(t *testing.T) {
 		}
 
 		ok,err := govalidator.ValidateStruct(customer)
-		g.Expect(ok).To(gomega.BeTrue())
-		g.Expect(err).To(gomega.BeNil())
-		g.Expect(err.Error()).To(gomega.Equal("Name is required         "))
+
+		g.Expect(ok).NotTo(BeTrue())
+		g.Expect(err).NotTo(BeNil())
+		g.Expect(err.Error()).To(Equal("Name is required"))
 	})
 	
 }
