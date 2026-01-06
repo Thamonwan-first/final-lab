@@ -7,7 +7,7 @@ import (
 	"github.com/onsi/gomega"
 )
 
-func CustomerValid(t *testing.T){
+func TestCustomerValid(t *testing.T){
 	g := gomega.NewGomegaWithT(t)
 
 	t.Run(`pass valid customer`, func(t *testing.T) {
