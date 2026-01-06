@@ -21,7 +21,7 @@ func NameCustomer(t *testing.T) {
 		ok,err := govalidator.ValidateStruct(customer)
 		g.Expect(ok).To(gomega.BeTrue())
 		g.Expect(err).To(gomega.BeNil())
-		g.Expect(err.Error()).To(gomega.Equal("Name is required"))
+		g.Expect(err.Error()).To(gomega.Equal("Name is required         "))
 	})
 	
 }
